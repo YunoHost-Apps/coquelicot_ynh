@@ -1,0 +1,48 @@
+{
+    "name": "Coquelicot",
+    "id": "coquelicot",
+    "description": {
+        "en": "Coquelicot is a “one-click” file sharing web application with a focus on protecting users’ privacy."
+    },
+    "licence": "GPL-2",
+    "developer": {
+        "name": "Moul",
+        "email": "moul@moul.re",
+        "url": "https://moul.re"
+    },
+    "multi_instance": "false",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "ask": {
+                    "en": "Choose a domain for Coquelicot"
+                },
+                "example": "example.com"
+            },
+            {
+                "name": "path",
+                "ask": {
+                    "en": "Choose a path for Coquelicot"
+                },
+                "example": "/coquelicot",
+                "default": "/coquelicot"
+            },
+            {
+                "name": "admin",
+                "ask": {
+                    "en": "Choose an admin user"
+                },
+                "example": "johndoe"
+            },
+            {
+                "name": "is_public",
+                "ask": {
+                    "en": "Is it a public application ?"
+                },
+                "choices": ["Yes", "No"],
+                "default": "Yes"
+            }
+        ]
+    }
+}
