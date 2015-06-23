@@ -19,13 +19,13 @@ fi
 
 # Install dependencies and Coquelicot Debian packages
 sudo apt-get -y -qq install rubygems libxml2-dev libxslt-dev coquelicot
-#sudo gem install bundler
+#sudo gem install bundler net-ldap
 #bundle install --deployment
 #bundle exec coquelicot start
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
 sed -i "s@YNH_WWW_PATH@$path@g" ../conf/nginx.conf
-sed -i "s@YNH_WWW_ALIAS@$final_path/@g" ../conf/nginx.conf
+sed -i "s@YNH_ALIAS@$path/@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # If app is public, add url to SSOWat conf as skipped_uris
@@ -34,6 +34,12 @@ then
  #  unprotected_uris allows SSO credentials to be passed anyway.
   sudo yunohost app setting $app unprotected_uris -v "/"
 fi
+
+# Generate hash password
+#echo -n $passwd | sha1sum
+
+# Add Coquelicot logs to the YunoHost monitoring
+sudo yunohost service add coquelicot --log /var/log/coquelicot/coquelicot.log
 
 # Restart services
 sudo service nginx reload

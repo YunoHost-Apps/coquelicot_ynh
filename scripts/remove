@@ -11,6 +11,9 @@ is_public=$(sudo yunohost app setting $app is_public)
 bundle exec coquelicot stop
 sudo apt-get -y -qq remove rubygems libxml2-dev libxslt-dev coquelicot
 
+# Remove Coquelicot logs from YunoHost monitoring
+sudo yunohost service remove $app
+
 # Remove configuration files
 #sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
 
