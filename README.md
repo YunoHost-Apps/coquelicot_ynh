@@ -4,3 +4,5 @@ Coquelicot is a “one-click” file sharing web application with a focus on pro
 
 * [Coquelicot web site](https://coquelicot.potager.org/)
 * [YunoHost web site](https://yunohost.org/#/)
+
+* Only works on Debian Jessie
